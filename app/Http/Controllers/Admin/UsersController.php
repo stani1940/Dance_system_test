@@ -109,6 +109,9 @@ class UsersController extends Controller
         $user->delete();
         return redirect()->route('admin.users.index');
     }
+    public function create_rating(User $user){
+        return view('admin.users.single_user', compact('user'));
+    }
 
     public function rating(Request $request)
     {
@@ -118,14 +121,15 @@ class UsersController extends Controller
 
         $rating = Rating::firstOrCreate(['user_id' => $user_id, 'ip' => $user_ip], ['rating_count' => $rating_count]);
 
-        // Below method is optional and can be user to display success messages
 
         if ($rating->wasRecentlyCreated) {
-            $message = 'Rated successfully';
+            //dd(1);
+            $message = 'Dancer has Rated successfully';
             return redirect()->route('dancers.list')->with('success',$message);
         } else {
-            $message = 'Already rated';
-            return redirect()->route('dancers.list')->with('error',$message);
+            $message = 'This dancer has already rated';
+            //dd(2);
+            return redirect()->route('admin.users.index')->with('error',$message);
         }
 
 

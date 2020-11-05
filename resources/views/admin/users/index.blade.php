@@ -4,6 +4,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if(Session::has('error'))
+                    <p class="alert alert-danger">
+                        {{Session::get('error') }}
+                    </p>
+                @endif
                 <div class="card">
                     <div class="card-header">Users</div>
                     <a href="{{route('admin.users.create')}}" class="btn btn-success">ADD USER</a>
@@ -30,7 +35,10 @@
                                     <td>{{implode(', ',$user->roles()->get()->pluck('name')->toArray())}}</td>
                                     <td>
                                         <a href="{{route('admin.users.show',$user->id)}}">
-                                            <button type="button" class="btn btn-primary float-left">SHOW</button>
+                                            <button type="button" class="btn btn-info float-left">SHOW</button>
+                                        </a>
+                                        <a href="{{route('admin.',$user->id)}}">
+                                            <button type="button" class="btn btn-primary float-left">RATE</button>
                                         </a>
                                         <a href="{{route('admin.users.edit',$user->id)}}">
                                             <button type="button" class="btn btn-warning float-left">EDIT</button>
