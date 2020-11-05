@@ -40,6 +40,7 @@
 
                 </div>
                 <div class="user_ratings">
+                    {//!! Form::open(['url' => 'admin.add.rating', 'method' => 'post']) !!}
 
                     <form method="post" action="{{route('admin.add.rating',$user->id)}}">
                         @csrf

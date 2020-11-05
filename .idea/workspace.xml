@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b5def6-4adf-4b49-9b28-083280454cd2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_05_213926_add_ratings_to_ratings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_05_215733_change_type_column_ratings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_05_220747_add_arbiter_id_column_to_ratings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DanceSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DanceSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_29_171855_create_ratings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_29_171855_create_ratings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style_rating.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style_rating.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/single_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/single_user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dancers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dancers/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +49,17 @@
         <item name="dance_system@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="dance_system@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="dance_system: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="dance_system@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
     </expand>
     <select />
   </component>
@@ -52,6 +74,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
@@ -159,6 +186,10 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
     </include_path>
   </component>
   <component name="ProjectId" id="1j3xcOzZwYca9Gxuh7CzoKT0QiZ" />
@@ -219,6 +250,9 @@
       <workItem from="1603991016732" duration="10394000" />
       <workItem from="1604245598554" duration="15812000" />
       <workItem from="1604329209174" duration="3415000" />
+      <workItem from="1604349986017" duration="1299000" />
+      <workItem from="1604511443545" duration="9048000" />
+      <workItem from="1604592152600" duration="14220000" />
     </task>
     <servers />
   </component>
@@ -238,10 +272,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="300" y="45" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603046770108" />
-    <state x="311" y="0" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604001547384">
+    <state x="311" y="0" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604596119401">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="311" y="0" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1604001547384" />
+    <state x="311" y="0" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1604596119401" />
     <state x="399" y="0" key="FileChooserDialogImpl" timestamp="1604256483179">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -250,10 +284,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="363" y="112" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1603999847919" />
-    <state x="513" y="291" key="NewPhpFileDialog" timestamp="1603999913443">
+    <state x="513" y="291" key="NewPhpFileDialog" timestamp="1604592477102">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="513" y="291" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603999913443" />
+    <state x="513" y="291" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1604592477102" />
     <state x="149" y="183" key="Performance.Activity.Monitor" timestamp="1603133211506">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
