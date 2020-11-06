@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b5def6-4adf-4b49-9b28-083280454cd2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_05_213926_add_ratings_to_ratings_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_05_215733_change_type_column_ratings_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_05_220747_add_arbiter_id_column_to_ratings_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DanceSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DanceSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style_rating.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style_rating.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rating.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/users/single_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/single_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dancers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dancers/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +242,11 @@
       <workItem from="1604329209174" duration="3415000" />
       <workItem from="1604349986017" duration="1299000" />
       <workItem from="1604511443545" duration="9048000" />
-      <workItem from="1604592152600" duration="14220000" />
+      <workItem from="1604592152600" duration="18509000" />
+      <workItem from="1604679370607" duration="462000" />
+      <workItem from="1604680866307" duration="4025000" />
+      <workItem from="1604684911010" duration="4007000" />
+      <workItem from="1604689049602" duration="1867000" />
     </task>
     <servers />
   </component>
@@ -292,9 +286,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="149" y="183" key="Performance.Activity.Monitor/0.0.1536.824@0.0.1536.824" timestamp="1603133211506" />
-    <state x="252" y="111" key="com.intellij.ide.util.TipDialog" timestamp="1604245599349">
+    <state x="252" y="111" key="com.intellij.ide.util.TipDialog" timestamp="1604689051421">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="252" y="111" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1604245599349" />
+    <state x="252" y="111" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1604689051421" />
   </component>
 </project>

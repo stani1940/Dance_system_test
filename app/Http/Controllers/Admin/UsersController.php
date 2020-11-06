@@ -109,27 +109,37 @@ class UsersController extends Controller
         $user->delete();
         return redirect()->route('admin.users.index');
     }
-    public function create_rating(User $user){
+
+    public function create_rating(User $user)
+    {
         return view('admin.users.single_user', compact('user'));
     }
 
     public function rating(Request $request)
     {
         $user_id = $request->user_id; // recieved from the single or individual post page
-        $rating_count = $request->rating; // this is the rating count
+        $rating_count = $request->rating_technique; // this is the rating count
+        $rating_performance = $request->rating_performance;
+        $rating_artistry = $request->rating_artistry;
         $user_ip = $request->ip(); // this will get the user ip address
 
-        $rating = Rating::firstOrCreate(['user_id' => $user_id, 'ip' => $user_ip], ['rating_count' => $rating_count]);
+        $rating = Rating::firstOrCreate(
+            ['user_id' => $user_id,
+                'ip' => $user_ip],
+            ['rating_count' => $rating_count,
+                'rating_performance' => $rating_performance,
+                'rating_artistry' => $rating_artistry
+            ]);
 
 
         if ($rating->wasRecentlyCreated) {
             //dd(1);
             $message = 'Dancer has Rated successfully';
-            return redirect()->route('dancers.list')->with('success',$message);
+            return redirect()->route('dancers.list')->with('success', $message);
         } else {
             $message = 'This dancer has already rated';
             //dd(2);
-            return redirect()->route('admin.users.index')->with('error',$message);
+            return redirect()->route('admin.users.index')->with('error', $message);
         }
 
 
