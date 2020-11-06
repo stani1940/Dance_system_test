@@ -13,7 +13,7 @@ class Rating extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'rating_count', 'ip',
+        'user_id', 'rating_count','rating_performance', 'rating_artistry','ip',
     ];
     public function ratings()
     {
