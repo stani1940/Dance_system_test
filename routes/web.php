@@ -30,3 +30,5 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')
 
     });
 
+Route::get('/about','AboutController@showAbout')->name('about');
+
