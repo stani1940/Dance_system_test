@@ -7,7 +7,7 @@
             <div class="navigation ">
                 <nav>
                     <ul class="sf-menu">
-                        <li class="current"><a href="index.html">Home</a></li>
+                        <li class="current"><a href="{{route('home')}}">Home</a></li>
                         <li><a href="{{route('about')}}">About</a></li>
                         <li><a href="{{route('arbiters.list')}}">Arbiters</a></li>
                         <li><a href="{{route('dancers.list')}}">Participants</a></li>
