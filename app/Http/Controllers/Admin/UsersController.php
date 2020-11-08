@@ -60,8 +60,10 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-
-        return view('admin.users.single_user', compact('user'));
+        //dd($user);
+        $ratings = Rating::where('user_id',$user->id)->get();
+      //  dd($ratings);
+        return view('admin.users.single_user', compact('user', 'ratings'));
 
     }
 
@@ -112,7 +114,7 @@ class UsersController extends Controller
 
     public function create_rating(User $user)
     {
-        return view('admin.users.single_user', compact('user'));
+        return view('arbiters.create_rating', compact('user'));
     }
 
     public function rating(Request $request)

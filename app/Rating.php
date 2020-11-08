@@ -15,7 +15,7 @@ class Rating extends Model
     protected $fillable = [
         'user_id', 'rating_count','rating_performance', 'rating_artistry','ip',
     ];
-    public function ratings()
+    public function users()
     {
         return $this->hasMany('App\User');
     }

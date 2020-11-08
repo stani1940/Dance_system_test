@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b5def6-4adf-4b49-9b28-083280454cd2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rating.php" afterDir="false" />
@@ -247,6 +248,8 @@
       <workItem from="1604680866307" duration="4025000" />
       <workItem from="1604684911010" duration="4007000" />
       <workItem from="1604689049602" duration="1867000" />
+      <workItem from="1604776431964" duration="1538000" />
+      <workItem from="1604827023231" duration="1226000" />
     </task>
     <servers />
   </component>
@@ -278,17 +281,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="363" y="112" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1603999847919" />
-    <state x="513" y="291" key="NewPhpFileDialog" timestamp="1604592477102">
+    <state x="513" y="291" key="NewPhpFileDialog" timestamp="1604769260528">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="513" y="291" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1604592477102" />
+    <state x="513" y="291" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1604769260528" />
     <state x="149" y="183" key="Performance.Activity.Monitor" timestamp="1603133211506">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="149" y="183" key="Performance.Activity.Monitor/0.0.1536.824@0.0.1536.824" timestamp="1603133211506" />
-    <state x="252" y="111" key="com.intellij.ide.util.TipDialog" timestamp="1604689051421">
+    <state x="252" y="111" key="com.intellij.ide.util.TipDialog" timestamp="1604776441416">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="252" y="111" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1604689051421" />
+    <state x="252" y="111" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1604776441416" />
   </component>
 </project>
