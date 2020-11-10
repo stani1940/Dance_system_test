@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -54,10 +55,16 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+
+
+        public function edit( Profile $profile )
     {
-        //
+        $profile = Profile::find( $profile )->first();
+        $user_data = $profile->user;
+
+        return view('profiles.edit', compact( 'profile', 'user_data' ) );
     }
+
 
     /**
      * Update the specified resource in storage.
