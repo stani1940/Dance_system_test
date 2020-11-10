@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
     <title>Home</title>
     <meta charset="utf-8">
     <meta name = "format-detection" content = "telephone=no" />
+    <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')}}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" />
     <link rel="stylesheet" href="{{asset('css/touchTouch.css')}}">
     <link rel="stylesheet" href="{{asset('css/camera.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-
-    <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')}}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/jquery-migrate-1.1.1.js')}}"></script>
     <script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
@@ -71,3 +69,4 @@
             <div class="clear"></div>
         </div>
     </header>
+
