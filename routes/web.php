@@ -25,5 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::namespace('Admin')->prefix('admin')->name('admin.')
     ->group(function (){
     Route::resource('/admin/users','UsersController');
+    Route::get('admin/users{user}','UsersController@create_rating');
     Route::post('admin/users{user}', 'UsersController@rating')->name('add.rating');
-});
+
+    });
+
+Route::get('/about','AboutController@showAbout')->name('about');
+

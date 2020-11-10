@@ -60,8 +60,10 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-
-        return view('admin.users.single_user', compact('user'));
+        //dd($user);
+        $ratings = Rating::where('user_id',$user->id)->get();
+      //  dd($ratings);
+        return view('admin.users.single_user', compact('user', 'ratings'));
 
     }
 
@@ -110,22 +112,36 @@ class UsersController extends Controller
         return redirect()->route('admin.users.index');
     }
 
+    public function create_rating(User $user)
+    {
+        return view('arbiters.create_rating', compact('user'));
+    }
+
     public function rating(Request $request)
     {
         $user_id = $request->user_id; // recieved from the single or individual post page
-        $rating_count = $request->rating; // this is the rating count
+        $rating_count = $request->rating_technique; // this is the rating count
+        $rating_performance = $request->rating_performance;
+        $rating_artistry = $request->rating_artistry;
         $user_ip = $request->ip(); // this will get the user ip address
 
-        $rating = Rating::firstOrCreate(['user_id' => $user_id, 'ip' => $user_ip], ['rating_count' => $rating_count]);
+        $rating = Rating::firstOrCreate(
+            ['user_id' => $user_id,
+                'ip' => $user_ip],
+            ['rating_count' => $rating_count,
+                'rating_performance' => $rating_performance,
+                'rating_artistry' => $rating_artistry
+            ]);
 
-        // Below method is optional and can be user to display success messages
 
         if ($rating->wasRecentlyCreated) {
-            $message = 'Rated successfully';
-            return redirect()->route('dancers.list')->with('success',$message);
+            //dd(1);
+            $message = 'Dancer has Rated successfully';
+            return redirect()->route('dancers.list')->with('success', $message);
         } else {
-            $message = 'Already rated';
-            return redirect()->route('dancers.list')->with('error',$message);
+            $message = 'This dancer has already rated';
+            //dd(2);
+            return redirect()->route('admin.users.index')->with('error', $message);
         }
 
 

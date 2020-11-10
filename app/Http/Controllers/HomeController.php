@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
     public function showDancers()
     {
         $dancers = User::whereHas('roles', function ($q) {
@@ -38,12 +39,12 @@ class HomeController extends Controller
 
     public function showArbiters(User $user)
     {
-        $profile=Profile::all();
+        $profile = Profile::all();
         $arbiters = User::whereHas('roles', function ($q) {
             $q->where('name', 'arbiter');
         })->get();
 
         //dd($profile);
-        return view('arbiters.index', compact('arbiters','profile'));
+        return view('arbiters.index', compact('arbiters', 'profile'));
     }
 }

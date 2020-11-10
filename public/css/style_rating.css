@@ -1,4 +1,4 @@
-.user_ratings  {
+.user_ratings {
     padding: 8px 30px;
     display: inline-block;
     background-color: #039be5;
@@ -6,15 +6,18 @@
     border: none;
     cursor: pointer;
 }
+
 .rating_submit_inner {
     display: block;
     direction: rtl;
     unicode-bidi: bidi-override;
     text-align: center;
 }
+
 .rating_submit_inner .star {
     display: none;
 }
+
 .rating_submit_inner label {
     color: lightgray;
     display: inline-block;
@@ -23,19 +26,24 @@
     transition: transform .15s ease;
     cursor: pointer;
 }
+
 .rating_submit_inner label:hover {
     transform: scale(1.35, 1.35);
 }
+
 .rating_submit_inner label:hover,
 .rating_submit_inner label:hover ~ label {
     color: orange;
 }
+
 .rating_submit_inner .star:checked ~ label {
     color: orange;
 }
+
 .user_ratings .fa {
     color: #ff9800;
 }
+
 .user_ratings .fa.light {
     color: #d3d3d3;
 }

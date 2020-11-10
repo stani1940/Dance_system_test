@@ -7,8 +7,8 @@
             <div class="navigation ">
                 <nav>
                     <ul class="sf-menu">
-                        <li class="current"><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li class="current"><a href="{{route('home')}}">Home</a></li>
+                        <li><a href="{{route('about')}}">About</a></li>
                         <li><a href="{{route('arbiters.list')}}">Arbiters</a></li>
                         <li><a href="{{route('dancers.list')}}">Participants</a></li>
                         @if (Route::has('login'))
@@ -43,9 +43,9 @@
     <div class="container_12">
         <div class="grid_12">
             <div id="camera_wrap" class="">
-                <div data-src="images/slide-1.jpg" data-thumb="images/thumb-2.jpg"></div>
-                <div data-src="images/slide-2.jpg" data-thumb="images/thumb-3.jpg"></div>
-                <div data-src="images/slide-3.jpg" data-thumb="images/thumb-1.jpg"></div>
+                <div data-src="storage/images/slide-1.jpg" data-thumb="images/thumb-2.jpg"></div>
+                <div data-src="storage/images/slide-2.jpg" data-thumb="images/thumb-3.jpg"></div>
+                <div data-src="storage/images/slide-3.jpg" data-thumb="images/thumb-1.jpg"></div>
             </div>
         </div>
         <div class="clear"></div>
