@@ -66,7 +66,7 @@ class User extends Authenticatable
 
     public function ratings()
     {
-        return $this->hasOne('App\Rating');
+        return $this->hasMany('App\Rating');
     }
 
 

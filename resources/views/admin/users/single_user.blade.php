@@ -7,16 +7,22 @@
 
                 <div class="col-12 text-center post-title-wrap pb-3">
                     <h1 itemprop="headline" class="entry-title">{{$user->name}}</h1>
+                    <p>Total points- {{number_format(array_sum($total),2)}}</p>
                 </div>
                 <div class="card-body">
                     <table class="table table-dark  table-striped">
                         <thead>
                         <tr>
                             <th>#</th>
+                            <th>Arbiter`s id</th>
                             <th>Arbiter`s name</th>
                             <th>Techniques`s rating</th>
                             <th>Performance` rating</th>
                             <th>Artistry`s rating</th>
+                            <th>Sum first+second</th>
+                            <th>Sum first+third</th>
+                            <th>Sum second+third</th>
+                            <th>Flag</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -24,18 +30,47 @@
                             $num = 1;
                         @endphp
                         @foreach($ratings as $rating)
-                            <tr>
+
+
+
+                            @php
+                                if ($tmp[$num-1][3]===1){
+                                $class='active';
+
+    }else{
+        $class='inactive';
+    }
+
+                            @endphp
+                            <tr class="{{$class}}">
                                 <td> {{$num++}} </td>
-                                <td> {{$rating->arbier_id}} </td>
+                                <td> {{$rating->arbiter_id}} </td>
+                                <td> @foreach($arbiters as $arbiter){{$arbiter->name}}@endforeach </td>
+
                                 <td>{{$rating->rating_count}}</td>
                                 <td>{{$rating->rating_performance}}</td>
                                 <td>{{$rating->rating_artistry}}</td>
+                                <td>{{$first_second=$rating->rating_count+$rating->rating_performance}}</td>
+                                <td>{{$first_third=$rating->rating_count+$rating->rating_artistry}}</td>
+                                <td>{{$second_third=$rating->rating_performance+$rating->rating_artistry}}</td>
+                                <td>{{$tmp[$num-2][3]}}</td>
                             </tr>
+                        @endforeach
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            @foreach($total as $value)
+                                <td>{{number_format($value,2)}}</td>
                             @endforeach
+                        </tr>
+
+
                         </tbody>
                     </table>
+
+                </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
