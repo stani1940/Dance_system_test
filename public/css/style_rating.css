@@ -47,3 +47,7 @@
 .user_ratings .fa.light {
     color: #d3d3d3;
 }
+
+.inactive{
+    color: darkred;
+}

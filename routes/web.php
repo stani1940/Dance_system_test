@@ -27,6 +27,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')
     Route::resource('/admin/users','UsersController');
     Route::get('admin/users{user}','UsersController@create_rating');
     Route::post('admin/users{user}', 'UsersController@rating')->name('add.rating');
+    Route::get('profile/{user}','ProfileController@index')->name('profile');
 
     });
 

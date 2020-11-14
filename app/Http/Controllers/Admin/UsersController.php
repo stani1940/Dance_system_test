@@ -8,6 +8,7 @@ use Gate;
 use App\User;
 use App\Rating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -61,9 +62,56 @@ class UsersController extends Controller
     public function show(User $user)
     {
         //dd($user);
-        $ratings = Rating::where('user_id',$user->id)->get();
-      //  dd($ratings);
-        return view('admin.users.single_user', compact('user', 'ratings'));
+        $ratings = Rating::where('user_id', $user->id)->get();
+        //dd($ratings);
+        $arbiter = $ratings->first();
+        $a_id = $arbiter->arbiter_id;
+
+        $arbiters = User::where('id', $a_id)->get();
+        //dd($arbiters);
+        foreach ($ratings as $rating) {
+            $tmp[] = array(
+                $rating->rating_count + $rating->rating_performance,
+                $rating->rating_count + $rating->rating_artistry,
+                $rating->rating_performance + $rating->rating_artistry
+            );
+        }
+        $max = max(max($tmp));
+        $min = min(min($tmp));
+        $flag_count=0;
+
+        foreach ($tmp as $key => $row) {
+            if ((in_array($max, $row) || in_array($min, $row))) {
+                $tmp[$key][3] = 0;
+            } else {
+                $tmp[$key][3] = 1;
+                $flag_count++;
+            }
+        }
+        $message='';
+        if ($flag_count<1){
+            $message='Не може да се изключат мин мах стойности';
+            foreach ($tmp as $key => $row) {
+                $tmp[$key][3]=1;
+            }
+            $flag_count=count($tmp);
+        }
+
+        $total=array(0,0,0);
+        $i=0;
+        foreach ($ratings as $rating) {
+           if ($tmp[$i][3]){
+               $total[0] += $rating->rating_count;
+               $total[1] += $rating->rating_performance;
+               $total[2] += $rating->rating_artistry;
+           }
+           $i++;
+        }
+        foreach($total as $key => $v){
+            $total[$key]=$v/$flag_count;
+        }
+
+        return view('admin.users.single_user', compact('user', 'ratings', 'arbiters','tmp','total','message'));
 
     }
 
@@ -124,13 +172,14 @@ class UsersController extends Controller
         $rating_performance = $request->rating_performance;
         $rating_artistry = $request->rating_artistry;
         $user_ip = $request->ip(); // this will get the user ip address
-
+        $arbiter_id = Auth::user()->id;
         $rating = Rating::firstOrCreate(
             ['user_id' => $user_id,
                 'ip' => $user_ip],
             ['rating_count' => $rating_count,
                 'rating_performance' => $rating_performance,
-                'rating_artistry' => $rating_artistry
+                'rating_artistry' => $rating_artistry,
+                'arbiter_id' => $arbiter_id,
             ]);
 
 

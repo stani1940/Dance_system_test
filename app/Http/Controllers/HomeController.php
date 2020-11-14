@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Profile;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user =Auth::user()->id;
+        //dd($user);
+        $profile = Profile::with('user')->find($user);
+       // dd($profile);
+
+        return view('home',compact('profile'));
     }
 
     public function showDancers()
