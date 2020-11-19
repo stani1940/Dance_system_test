@@ -8,8 +8,13 @@
                 <div class="col-12 text-center post-title-wrap pb-3">
                     <h1 itemprop="headline" class="entry-title">{{$user->name}}</h1>
                     <p>Total points- {{number_format(array_sum($total),2)}}</p>
+                    <h1 itemprop="headline" class="entry-title"><a href="{{route('admin.users.show',$user->id)}}">
+                            <button type="button" class="btn btn-success">AGREE WITH RATING</button>
+                        </a></h1>
                 </div>
                 <div class="card-body">
+
+
                     <table class="table table-dark  table-striped">
                         <thead>
                         <tr>
@@ -27,9 +32,12 @@
                             $num = 1;
                         @endphp
                         @foreach($ratings as $rating)
-
-
-
+                            @php
+                                foreach ($arbiters as $arbiter)
+                            {
+                                $arb=$arbiter->name;
+                            }
+                            @endphp
                             @php
                                 if ($tmp[$num-1][3]===1){
                                 $class='active';
@@ -37,10 +45,14 @@
     }else{
         $class='inactive';
     }
-
                             @endphp
+
                             <tr class="{{$class}}">
+
                                 <td>{{$num++}}</td>
+
+                             
+
 
                                 <td>{{$arbiters[$num-1]}}</td>
                                 <td>{{$rating->rating_count}}</td>
@@ -56,8 +68,6 @@
                                 <td>{{number_format($value,2)}}</td>
                             @endforeach
                         </tr>
-
-
                         </tbody>
                     </table>
 

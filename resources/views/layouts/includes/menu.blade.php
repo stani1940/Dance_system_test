@@ -43,9 +43,9 @@
     <div class="container_12">
         <div class="grid_12">
             <div id="camera_wrap" class="">
-                <div data-src="storage/images/slide-1.jpg" data-thumb="images/thumb-2.jpg"></div>
-                <div data-src="storage/images/slide-2.jpg" data-thumb="images/thumb-3.jpg"></div>
-                <div data-src="storage/images/slide-3.jpg" data-thumb="images/thumb-1.jpg"></div>
+                <div data-src="{{asset('storage/images/slide-1.jpg')}}" data-thumb="{{asset('storage/images/thumb-2.jpg')}}"></div>
+                <div data-src="{{asset('storage/images/slide-2.jpg')}}" data-thumb="{{asset('storage/images/thumb-3.jpg')}}"></div>
+                <div data-src="{{asset('storage/images/slide-3.jpg')}}" data-thumb="{{asset('storage/images/thumb-1.jpg')}}"></div>
             </div>
         </div>
         <div class="clear"></div>

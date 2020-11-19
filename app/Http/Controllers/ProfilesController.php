@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProfilesController extends Controller
 {
@@ -17,10 +15,6 @@ class ProfilesController extends Controller
     public function index()
     {
 
-        $user=Auth::user()->id;
-        dd($user);
-        $profile = Profile::find( $user )->first();
-        return view('admin.users.profile', compact('profile','user'));
     }
 
     /**
@@ -61,16 +55,13 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-
-        public function edit( Profile $profile )
+    public function edit(Profile $profile)
     {
         $profile = Profile::find( $profile )->first();
         $user_data = $profile->user;
 
         return view('profiles.edit', compact( 'profile', 'user_data' ) );
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -79,9 +70,18 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Profile $profile)
     {
-        //
+        $ext = $request->file('image')->getClientOriginalExtension();
+
+        $path = $request->file('image')
+            ->storeAs('public/user_images', $request->user()->name .'.' . $ext);
+
+        $profile = Profile::find( $profile )->first();
+
+        $profile->image = 'user_images/' . $request->user()->name .'.' . $ext;
+
+        $profile->save();
     }
 
     /**
