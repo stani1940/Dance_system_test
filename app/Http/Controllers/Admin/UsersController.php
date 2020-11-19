@@ -59,23 +59,26 @@ class UsersController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
+
     public function show(User $user)
     {
         //dd($user);
+        $id = $user->id;
         $ratings = Rating::where('user_id', $user->id)->get();
         //dd($ratings);
-        $arbiter = $ratings->first();
-        $a_id = $arbiter->arbiter_id;
+        $arbiter_ids = [];
+        $i=0;
 
-        $arbiters = User::where('id', $a_id)->get();
-        //dd($arbiters);
         foreach ($ratings as $rating) {
+            $arbiter_ids[$i] = $rating->arbiter_id; $i++;
             $tmp[] = array(
                 $rating->rating_count + $rating->rating_performance,
                 $rating->rating_count + $rating->rating_artistry,
                 $rating->rating_performance + $rating->rating_artistry
             );
         }
+
+        //dd($arbiter_ids);
         $max = max(max($tmp));
         $min = min(min($tmp));
         $flag_count=0;
@@ -111,8 +114,35 @@ class UsersController extends Controller
             $total[$key]=$v/$flag_count;
         }
 
-        return view('admin.users.single_user', compact('user', 'ratings', 'arbiters','tmp','total','message'));
+        $users = User::all();
+        $arbiters = []; 
+        $j = 1;
+        foreach ($arbiter_ids as $arbiter_id)
+        {
+            foreach($users as $user_id)
+            {
+                if($user_id->id == $arbiter_id)
+                {
+                    $arbiters[$j] = $user_id->name;
+                    $j++; 
+                }
+            }
+        }
 
+
+        $points = number_format(array_sum($total),2);
+
+//        function store_points($id, $points)
+  //      {
+    //        $profile->points = $points;
+      //      $profile->save();
+        //}
+
+     //   store_points($id,$points);
+
+        //dd($points);
+        //dd($arbiters);
+        return view('admin.users.single_user', compact('user', 'ratings','arbiters', 'tmp','total','message'));
     }
 
     public function edit(User $user)

@@ -14,15 +14,12 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Arbiter`s id</th>
+
                             <th>Arbiter`s name</th>
                             <th>Techniques`s rating</th>
                             <th>Performance` rating</th>
                             <th>Artistry`s rating</th>
-                            <th>Sum first+second</th>
-                            <th>Sum first+third</th>
-                            <th>Sum second+third</th>
-                            <th>Flag</th>
+
                         </tr>
                         </thead>
                         <tbody>
@@ -43,21 +40,16 @@
 
                             @endphp
                             <tr class="{{$class}}">
-                                <td> {{$num++}} </td>
-                                <td> {{$rating->arbiter_id}} </td>
-                                <td> @foreach($arbiters as $arbiter){{$arbiter->name}}@endforeach </td>
+                                <td>{{$num++}}</td>
 
+                                <td>{{$arbiters[$num-1]}}</td>
                                 <td>{{$rating->rating_count}}</td>
                                 <td>{{$rating->rating_performance}}</td>
                                 <td>{{$rating->rating_artistry}}</td>
-                                <td>{{$first_second=$rating->rating_count+$rating->rating_performance}}</td>
-                                <td>{{$first_third=$rating->rating_count+$rating->rating_artistry}}</td>
-                                <td>{{$second_third=$rating->rating_performance+$rating->rating_artistry}}</td>
-                                <td>{{$tmp[$num-2][3]}}</td>
+
                             </tr>
                         @endforeach
                         <tr>
-                            <td></td>
                             <td></td>
                             <td></td>
                             @foreach($total as $value)
