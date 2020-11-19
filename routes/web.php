@@ -21,13 +21,16 @@ Route::get('/arbiters','HomeController@showArbiters')->name('arbiters.list');
 Route::get('/participants','HomeController@showDancers')->name('dancers.list');
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('profile/{user}','ProfilesController@index')->name('profile');
+Route::get('/profile/{profile}/edit', 'ProfilesController@edit')->name('profiles.edit');
+Route::put('/profile/{profile}/edit', 'ProfilesController@update')->name('profiles.update');
 Route::namespace('Admin')->prefix('admin')->name('admin.')
     ->group(function (){
     Route::resource('/admin/users','UsersController');
-    Route::get('admin/users{user}','UsersController@create_rating');
-    Route::post('admin/users{user}', 'UsersController@rating')->name('add.rating');
-    Route::get('profile/{user}','ProfileController@index')->name('profile');
+    Route::get('admin/users{user}','UsersController@create_rating')->middleware('role:arbiter');
+    Route::post('admin/users{user}', 'UsersController@rating')->name('add.rating');//->middleware('role:arbiter');
 
     });
 

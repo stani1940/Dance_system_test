@@ -10,14 +10,17 @@
                     <div class="card-body">
                         <p> {{$profile->user->name}}</p>
                         <p> {{$profile->country}}</p>
-                       <p>
-                           {{$profile->bio}}
-                       </p>
+                        <p>
+                            {{$profile->bio}}
+                        </p>
                         <p>
                             <img src="{{asset($profile->img)}}"alt="pic" />
                         </p>
 
-                           <a href="" class="btn btn-warning">EDIT PROFILE</a>
+                        <a href="{{route('profiles.edit', $profile->user->id )}}" class="btn btn-warning">EDIT PROFILE</a>
+                        <a href="{{route('admin.users.show',$profile->user->id)}}">
+                            <button type="button" class="btn btn-info float-left">SHOW Rating</button>
+                        </a>
 
                     </div>
 

@@ -52,11 +52,10 @@
                                         <div class="form-check">
                                             <input type="checkbox" name="roles[]" value="{{$role->id}}" id="check"
                                                    @if($user->pluck('id')->contains($role->id)) checked @endif>
-
                                             <label for="check">{{$role->name}}</label>
                                         </div>
                                     @endforeach
-                                    <button type="submit" class="btn btn-secondary">UPDATE</button>
+                                    <button type="submit" class="btn btn-warning">UPDATE</button>
                                 </div>
                             </div>
                         </form>
