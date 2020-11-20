@@ -10,7 +10,7 @@
 
             <div class="grid_6">
                 <div class="block-2">
-                    <img src="{{asset($profile->find($arbiter->id)->img)}}" alt="pic">
+                    <img src="{{asset('storage/'.$profile->find($arbiter->id)->img)}}" alt="pic">
                     <div class="extra_wrapper">
                         <h4 class="color1"><a href="#">{{$arbiter->name}}</a></h4>
                         <p class="color1"> {{$profile->find($arbiter->id)->bio}}</p>
