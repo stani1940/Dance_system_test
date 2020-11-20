@@ -41,16 +41,18 @@
                                             <button type="button" class="btn btn-primary float-left">RATE</button>
                                         </a>
                                         @can('edit-users')
-                                        <a href="{{route('admin.users.edit',$user->id)}}">
-                                            <button type="button" class="btn btn-warning float-left">EDIT</button>
-                                        </a>
+                                            <a href="{{route('admin.users.edit',$user->id)}}">
+                                                <button type="button" class="btn btn-warning float-left">EDIT</button>
+                                            </a>
                                         @endcan
-                                        <form action="{{route('admin.users.destroy',$user)}}" method="POST"
-                                              class="float-left">
-                                            @csrf
-                                            {{method_field('DELETE')}}
-                                            <button type="submit" class="btn btn-danger">DELETE</button>
-                                        </form>
+                                        @can('delete-users')
+                                            <form action="{{route('admin.users.destroy',$user)}}" method="POST"
+                                                  class="float-left">
+                                                @csrf
+                                                {{method_field('DELETE')}}
+                                                <button type="submit" class="btn btn-danger">DELETE</button>
+                                            </form>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach
