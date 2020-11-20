@@ -32,12 +32,7 @@
                             $num = 1;
                         @endphp
                         @foreach($ratings as $rating)
-                            @php
-                                foreach ($arbiters as $arbiter)
-                            {
-                                $arb=$arbiter->name;
-                            }
-                            @endphp
+
                             @php
                                 if ($tmp[$num-1][3]===1){
                                 $class='active';
@@ -50,10 +45,6 @@
                             <tr class="{{$class}}">
 
                                 <td>{{$num++}}</td>
-
-                             
-
-
                                 <td>{{$arbiters[$num-1]}}</td>
                                 <td>{{$rating->rating_count}}</td>
                                 <td>{{$rating->rating_performance}}</td>

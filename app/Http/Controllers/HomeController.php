@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Profile;
 use Illuminate\Http\Request;
 use App\User;
+
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -26,21 +27,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user =Auth::user()->id;
+        $user = Auth::user()->id;
         //dd($user);
         $profile = Profile::with('user')->find($user);
-       // dd($profile);
+        // dd($profile);
 
-        return view('home',compact('profile'));
+        return view('home', compact('profile'));
     }
 
     public function showDancers()
     {
-        $dancers = User::whereHas('roles', function ($q) {
+        $dancers = User::with('profile')->whereHas('roles', function ($q) {
             $q->where('name', 'dancer');
         })->get();
-
-        return view('dancers.index', compact('dancers'));
+        $profiles = Profile::all();
+        return view('dancers.index', compact('dancers', 'profiles'));
     }
 
     public function showArbiters(User $user)

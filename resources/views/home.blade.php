@@ -14,7 +14,7 @@
                             {{$profile->bio}}
                         </p>
                         <p>
-                            <img src="{{asset($profile->img)}}"alt="pic" />
+                            <img src="{{asset('storage/'.$profile->img)}}"alt="pic" />
                         </p>
 
                         <a href="{{route('profiles.edit', $profile->user->id )}}" class="btn btn-warning">EDIT PROFILE</a>

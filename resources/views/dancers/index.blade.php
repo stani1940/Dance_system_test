@@ -18,16 +18,20 @@
                             <tr>
                                 <th>#</th>
                                 <th>name</th>
-                                <th>Email</th>
+                                <th>country</th>
                                 <th>Points</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                            $num=1
+                            @endphp
                             @foreach($dancers as $dancer)
                                 <tr>
-                                    <td> {{$dancer->id}} </td>
+                                    <td> {{$num++}} </td>
                                     <td> {{$dancer->name}} </td>
-                                    <td>{{$dancer->email}}</td>
+                                    <td>{{($dancer->profile->country )}}</td>
+                                    <td>{{($dancer->profile->points)}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

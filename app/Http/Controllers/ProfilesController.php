@@ -72,14 +72,14 @@ class ProfilesController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-        $ext = $request->file('image')->getClientOriginalExtension();
+        $ext = $request->file('img')->getClientOriginalExtension();
 
-        $path = $request->file('image')
-            ->storeAs('public/user_images', $request->user()->name .'.' . $ext);
+        $path = $request->file('img')
+            ->storeAs('public/images', $request->user()->name .'.' . $ext);
 
         $profile = Profile::find( $profile )->first();
 
-        $profile->image = 'user_images/' . $request->user()->name .'.' . $ext;
+        $profile->img = 'images/' . $request->user()->name .'.' . $ext;
 
         $profile->save();
     }

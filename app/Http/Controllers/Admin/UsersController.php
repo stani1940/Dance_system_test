@@ -64,16 +64,11 @@ class UsersController extends Controller
     public function show(User $user)
     {
         //dd($user);
-        $id = $user->id;
+       // $id = $user->id;
         $ratings = Rating::where('user_id', $user->id)->get();
         //dd($ratings);
-
         $arbiter_ids = [];
         $i=0;
-
-
-
-
         foreach ($ratings as $rating) {
             $arbiter_ids[$i] = $rating->arbiter_id; $i++;
             $tmp[] = array(
@@ -119,9 +114,8 @@ class UsersController extends Controller
             $total[$key] = $v / $flag_count;
         }
 
-
         $users = User::all();
-        $arbiters = []; 
+        $arbiters = [];
         $j = 1;
         foreach ($arbiter_ids as $arbiter_id)
         {
@@ -130,11 +124,10 @@ class UsersController extends Controller
                 if($user_id->id == $arbiter_id)
                 {
                     $arbiters[$j] = $user_id->name;
-                    $j++; 
+                    $j++;
                 }
             }
         }
-
 
         $points = number_format(array_sum($total),2);
 
