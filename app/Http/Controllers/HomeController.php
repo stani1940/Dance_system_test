@@ -31,7 +31,6 @@ class HomeController extends Controller
         //dd($user);
         $profile = Profile::with('user')->find($user);
         // dd($profile);
-
         return view('home', compact('profile'));
     }
 
@@ -40,7 +39,11 @@ class HomeController extends Controller
         $dancers = User::with('profile')
             ->whereHas('roles', function ($q) {
             $q->where('name', 'dancer');
-        })->get();
+        })
+            ->join('profiles', 'profiles.id', '=', 'users.id')
+            ->orderBy('points','desc')
+            ->get();
+        //dd($dancers);
         $profiles = Profile::all();
         return view('dancers.index', compact('dancers', 'profiles'));
     }
