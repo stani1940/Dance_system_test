@@ -26,6 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('profile/{user}','ProfilesController@index')->name('profile');
 Route::get('/profile/{profile}/edit', 'ProfilesController@edit')->name('profiles.edit');
 Route::put('/profile/{profile}/edit', 'ProfilesController@update')->name('profiles.update');
+Route::put('/profile/{profile}/edit_points', 'ProfilesController@update_points')->name('profiles.update_points');
+
 Route::namespace('Admin')->prefix('admin')->name('admin.')
     ->group(function (){
     Route::resource('/admin/users','UsersController');

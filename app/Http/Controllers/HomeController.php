@@ -37,7 +37,8 @@ class HomeController extends Controller
 
     public function showDancers()
     {
-        $dancers = User::with('profile')->whereHas('roles', function ($q) {
+        $dancers = User::with('profile')
+            ->whereHas('roles', function ($q) {
             $q->where('name', 'dancer');
         })->get();
         $profiles = Profile::all();

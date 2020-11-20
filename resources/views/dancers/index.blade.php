@@ -19,7 +19,7 @@
                                 <th>#</th>
                                 <th>name</th>
                                 <th>country</th>
-                                <th>Points</th>
+                                <th>points</th>
                             </tr>
                             </thead>
                             <tbody>

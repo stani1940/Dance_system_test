@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Role;
 use Gate;
 use App\User;
+use App\Profile;
 use App\Rating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,8 +62,9 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show(User $user)
+    public function show(User $user, Profile $profile)
     {
+        $profile = Profile::find( $profile )->first();
         //dd($user);
        // $id = $user->id;
         $ratings = Rating::where('user_id', $user->id)->get();
@@ -131,7 +133,7 @@ class UsersController extends Controller
 
         $points = number_format(array_sum($total),2);
 
-        return view('admin.users.single_user', compact('user', 'ratings', 'arbiters', 'tmp', 'total', 'message'));
+        return view('admin.users.single_user', compact('user', 'ratings', 'arbiters', 'tmp', 'total', 'message','profile','points'));
 
 
 //        function store_points($id, $points)
@@ -144,7 +146,6 @@ class UsersController extends Controller
 
         //dd($points);
         //dd($arbiters);
-        return view('admin.users.single_user', compact('user', 'ratings','arbiters', 'tmp','total','message'));
     }
 
     public function edit(User $user)

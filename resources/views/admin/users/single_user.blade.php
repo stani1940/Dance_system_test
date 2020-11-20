@@ -8,9 +8,16 @@
                 <div class="col-12 text-center post-title-wrap pb-3">
                     <h1 itemprop="headline" class="entry-title">{{$user->name}}</h1>
                     <p>Total points- {{number_format(array_sum($total),2)}}</p>
-                    <h1 itemprop="headline" class="entry-title"><a href="{{route('admin.users.show',$user->id)}}">
-                            <button type="button" class="btn btn-success">AGREE WITH RATING</button>
-                        </a></h1>
+
+                    {!! Form::model( $profile,  ['route' => ['profiles.update_points', $user->id],
+                                               'method' => 'put']) !!}
+                    {!! Form::hidden('points', $points) !!}
+
+                    <div class="form-group">
+                        {!! Form::submit('Agree with rating', ['class' => 'btn btn-success']) !!}
+                    </div>
+                    {!! Form::close() !!}
+
                 </div>
                 <div class="card-body">
 

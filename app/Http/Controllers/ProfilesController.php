@@ -84,6 +84,16 @@ class ProfilesController extends Controller
         $profile->save();
     }
 
+
+    public function update_points(Request $request, Profile $profile)
+    {
+        $points = $request->points;
+        $profile = Profile::find( $profile )->first();
+        $profile->points = $points;
+        $profile->save();
+        return redirect()->route('dancers.list');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
