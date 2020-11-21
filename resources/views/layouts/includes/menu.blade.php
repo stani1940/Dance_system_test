@@ -7,7 +7,7 @@
             <div class="navigation ">
                 <nav>
                     <ul class="sf-menu">
-
+                        <li><a href="{{'/'}}">Home</a></li>
                         <li><a href="{{route('about')}}">About</a></li>
                         <li><a href="{{route('arbiters.list')}}">Arbiters</a></li>
                         <li><a href="{{route('dancers.list')}}">Participants</a></li>
@@ -18,7 +18,7 @@
                             @else
                                 <li>
                                     <a href="{{ route('login') }}">Login</a>
-
+                                </li>
 
                             @endauth
 
@@ -38,9 +38,12 @@
     <div class="container_12">
         <div class="grid_12">
             <div id="camera_wrap" class="">
-                <div data-src="{{asset('storage/images/slide-1.jpg')}}" data-thumb="{{asset('storage/images/thumb-2.jpg')}}"></div>
-                <div data-src="{{asset('storage/images/slide-2.jpg')}}" data-thumb="{{asset('storage/images/thumb-3.jpg')}}"></div>
-                <div data-src="{{asset('storage/images/slide-3.jpg')}}" data-thumb="{{asset('storage/images/thumb-1.jpg')}}"></div>
+                <div data-src="{{asset('storage/images/slide-1.jpg')}}"
+                     data-thumb="{{asset('storage/images/thumb-2.jpg')}}"></div>
+                <div data-src="{{asset('storage/images/slide-2.jpg')}}"
+                     data-thumb="{{asset('storage/images/thumb-3.jpg')}}"></div>
+                <div data-src="{{asset('storage/images/slide-3.jpg')}}"
+                     data-thumb="{{asset('storage/images/thumb-1.jpg')}}"></div>
             </div>
         </div>
         <div class="clear"></div>

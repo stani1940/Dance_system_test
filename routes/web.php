@@ -16,13 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/about','AboutController@showAbout')->name('about');
 Route::get('/arbiters','HomeController@showArbiters')->name('arbiters.list');
-
 Route::get('/participants','HomeController@showDancers')->name('dancers.list');
 Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+
 Route::get('profile/{user}','ProfilesController@index')->name('profile')->middleware('auth');
 Route::get('/profile/{profile}/edit', 'ProfilesController@edit')->name('profiles.edit')->middleware('auth');
 Route::put('/profile/{profile}/edit', 'ProfilesController@update')->name('profiles.update')->middleware('auth');
@@ -38,5 +39,4 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')
 
     });
 
-Route::get('/about','AboutController@showAbout')->name('about');
 
