@@ -45,7 +45,15 @@ class HomeController extends Controller
             ->get();
         //dd($dancers);
         $profiles = Profile::all();
-        return view('dancers.index', compact('dancers', 'profiles'));
+
+        if (Auth::check() )
+        {
+            return view('dancers.indexLog', compact('dancers', 'profiles'));
+        }
+        else 
+        { 
+            return view('dancers.index', compact('dancers', 'profiles'));
+        }
     }
 
     public function showArbiters(User $user)

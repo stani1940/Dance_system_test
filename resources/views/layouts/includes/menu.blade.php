@@ -7,18 +7,17 @@
             <div class="navigation ">
                 <nav>
                     <ul class="sf-menu">
-                        <li class="current"><a href="{{'/'}}">Home</a></li>
+
                         <li><a href="{{route('about')}}">About</a></li>
                         <li><a href="{{route('arbiters.list')}}">Arbiters</a></li>
                         <li><a href="{{route('dancers.list')}}">Participants</a></li>
                         @if (Route::has('login'))
 
                             @auth
-                                <a href="{{ url('/home') }}">Home</a>
+                                <li><a href="{{ url('/home') }}">Profile</a></li>
                             @else
                                 <li>
                                     <a href="{{ route('login') }}">Login</a>
-                                </li>
 
 
                             @endauth

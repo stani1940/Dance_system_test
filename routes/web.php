@@ -32,7 +32,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')
     ->group(function (){
     Route::resource('/admin/users','UsersController');
     Route::get('admin/users{user}','UsersController@create_rating');
+
     Route::post('admin/users{user}', 'UsersController@rating')->name('add.rating');//->middleware('role:arbiter');
+
 
     });
 
