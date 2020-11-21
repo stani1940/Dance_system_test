@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileCreateUpdateRequest;
 use App\Profile;
 use Illuminate\Http\Request;
 
@@ -70,7 +71,7 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(ProfileCreateUpdateRequest $request, Profile $profile)
     {
         $ext = $request->file('img')->getClientOriginalExtension();
 

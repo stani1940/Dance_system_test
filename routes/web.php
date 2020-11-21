@@ -22,10 +22,10 @@ Route::get('/participants','HomeController@showDancers')->name('dancers.list');
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('profile/{user}','ProfilesController@index')->name('profile');
-Route::get('/profile/{profile}/edit', 'ProfilesController@edit')->name('profiles.edit');
-Route::put('/profile/{profile}/edit', 'ProfilesController@update')->name('profiles.update');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('profile/{user}','ProfilesController@index')->name('profile')->middleware('auth');
+Route::get('/profile/{profile}/edit', 'ProfilesController@edit')->name('profiles.edit')->middleware('auth');
+Route::put('/profile/{profile}/edit', 'ProfilesController@update')->name('profiles.update')->middleware('auth');
 Route::put('/profile/{profile}/edit_points', 'ProfilesController@update_points')->name('profiles.update_points');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')

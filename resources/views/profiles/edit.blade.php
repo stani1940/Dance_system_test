@@ -21,14 +21,20 @@
                                             'method' => 'put',
                                             'enctype' => 'multipart/form-data']) !!}
                         <p>Change your image</p>
+                        @if($errors->has('img'))
+                            <div class="col-sm-6  text-danger">
+                                {{ $errors->first('img') }}
+                            </div>
+                        @endif
                         {!! Form::file('img',['class'=>'form-control']) !!}
-                    </div>
+
+
                     <div class="form-group">
                         {!! Form::submit('edit', ['class' => 'btn btn-success']) !!}
                     </div>
 
                     {!! Form::close() !!}
-
+                    </div>
                 </div>
             </div>
         </div>
