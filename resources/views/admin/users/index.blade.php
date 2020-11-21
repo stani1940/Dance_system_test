@@ -11,7 +11,9 @@
                 @endif
                 <div class="card">
                     <div class="card-header">Users</div>
+                    @can('add-users')
                     <a href="{{route('admin.users.create')}}" class="btn btn-success">ADD USER</a>
+                    @endcan
                     <div class="card-body">
                         <table class="table table-dark table-striped">
                             <thead>

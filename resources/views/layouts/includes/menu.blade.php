@@ -19,11 +19,7 @@
                                 <li>
                                     <a href="{{ route('login') }}">Login</a>
                                 </li>
-                                <li>
-                                    @if (Route::has('register'))
-                                        <a href="{{ route('register') }}">Register</a>
-                                    @endif
-                                </li>
+                               
 
                             @endauth
 
