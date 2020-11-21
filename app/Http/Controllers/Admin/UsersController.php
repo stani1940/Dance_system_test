@@ -26,8 +26,20 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.users.index')->with('users', $users);
+        $user=Auth::user();
+        if ($user->hasRole('admin')){
+            $users = User::all();
+            return view('admin.users.index')->with('users', $users);
+        }
+        if ($user->hasRole('arbiter')){
+            $users = User::whereHas('roles', function ($q) {
+                $q->where('name', 'dancer');
+            })->get();
+
+            return view('admin.users.index')->with('users', $users);
+
+        }
+
     }
 
     public function create()

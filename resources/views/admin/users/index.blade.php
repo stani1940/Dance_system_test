@@ -11,7 +11,9 @@
                 @endif
                 <div class="card">
                     <div class="card-header">Users</div>
+                    @can('add-users')
                     <a href="{{route('admin.users.create')}}" class="btn btn-success">ADD USER</a>
+                    @endcan
                     <div class="card-body">
                         <table class="table table-dark table-striped">
                             <thead>
@@ -34,12 +36,15 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{implode(', ',$user->roles()->get()->pluck('name')->toArray())}}</td>
                                     <td>
+
                                         <a href="{{route('admin.users.show',$user->id)}}">
                                             <button type="button" class="btn btn-info float-left">SHOW</button>
                                         </a>
+                                        @can('rate-users')
                                         <a href="{{route('admin.',$user->id)}}">
                                             <button type="button" class="btn btn-primary float-left">RATE</button>
                                         </a>
+                                        @endcan
                                         @can('edit-users')
                                             <a href="{{route('admin.users.edit',$user->id)}}">
                                                 <button type="button" class="btn btn-warning float-left">EDIT</button>
