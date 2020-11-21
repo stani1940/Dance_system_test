@@ -34,12 +34,6 @@ class AuthServiceProvider extends ServiceProvider
             };
         });
 
-        Gate::define('rate-users',function ($user){
-            return $user->hasRole('arbiter');
-        });
-        Gate::define('add-users',function ($user){
-            return $user->hasRole('admin');
-        });
         Gate::define('edit-users',function ($user){
             return $user->hasRole('admin');
         });
