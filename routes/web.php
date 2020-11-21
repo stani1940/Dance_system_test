@@ -31,8 +31,8 @@ Route::put('/profile/{profile}/edit_points', 'ProfilesController@update_points')
 Route::namespace('Admin')->prefix('admin')->name('admin.')
     ->group(function (){
     Route::resource('/admin/users','UsersController');
-    Route::get('admin/users{user}','UsersController@create_rating')->middleware('role:arbiter');
-    Route::post('admin/users{user}', 'UsersController@rating')->name('add.rating');//->middleware('role:arbiter');
+    Route::get('admin/users{user}','UsersController@create_rating');
+    Route::post('admin/users{user}', 'UsersController@rating')->name('add.rating');
 
     });
 
