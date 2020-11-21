@@ -58,7 +58,9 @@ class ProfilesController extends Controller
      */
     public function edit(Profile $profile)
     {
-        $profile = Profile::find( $profile )->first();
+
+        $profile = Profile::find($profile )->first();
+
         $user_data = $profile->user;
 
         return view('profiles.edit', compact( 'profile', 'user_data' ) );
@@ -89,7 +91,6 @@ class ProfilesController extends Controller
     public function update_points(Request $request, Profile $profile)
     {
         $points = $request->points;
-        $profile = Profile::find( $profile )->first();
         $profile->points = $points;
         $profile->save();
         return redirect()->route('dancers.list');

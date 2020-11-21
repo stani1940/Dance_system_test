@@ -142,8 +142,9 @@ class UsersController extends Controller
         }
 
         $points = number_format(array_sum($total), 2);
+        $min_number_ratings = Rating::where('user_id', $user->id)->count();
 
-        return view('admin.users.single_user', compact('user', 'ratings', 'arbiters', 'tmp', 'total', 'message', 'profile', 'points'));
+        return view('admin.users.single_user', compact('user', 'ratings', 'arbiters', 'tmp', 'total', 'min_number_ratings', 'profile', 'points'));
     }
 
     public function edit(User $user)

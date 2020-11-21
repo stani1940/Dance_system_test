@@ -8,7 +8,10 @@
                 <div class="col-12 text-center post-title-wrap pb-3">
                     <h1 itemprop="headline" class="entry-title">{{$user->name}}</h1>
                     <p>Total points- {{number_format(array_sum($total),2)}}</p>
-
+                    @if($min_number_ratings < 5)
+                {{'there are not enough ratings'}}
+                @endif
+                    @if($min_number_ratings >=5)
                     {!! Form::model( $profile,  ['route' => ['profiles.update_points', $user->id],
                                                'method' => 'put']) !!}
                     {!! Form::hidden('points', $points) !!}
@@ -17,7 +20,7 @@
                         {!! Form::submit('Agree with rating', ['class' => 'btn btn-success']) !!}
                     </div>
                     {!! Form::close() !!}
-
+                        @endif
                 </div>
                 <div class="card-body">
 
