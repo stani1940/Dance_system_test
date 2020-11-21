@@ -36,12 +36,15 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{implode(', ',$user->roles()->get()->pluck('name')->toArray())}}</td>
                                     <td>
+
                                         <a href="{{route('admin.users.show',$user->id)}}">
                                             <button type="button" class="btn btn-info float-left">SHOW</button>
                                         </a>
+                                        @can('rate-users')
                                         <a href="{{route('admin.',$user->id)}}">
                                             <button type="button" class="btn btn-primary float-left">RATE</button>
                                         </a>
+                                        @endcan
                                         @can('edit-users')
                                             <a href="{{route('admin.users.edit',$user->id)}}">
                                                 <button type="button" class="btn btn-warning float-left">EDIT</button>
