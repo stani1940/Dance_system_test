@@ -26,6 +26,7 @@
                                 {{ $errors->first('img') }}
                             </div>
                         @endif
+
                         {!! Form::file('img',['class'=>'form-control']) !!}
 
 
