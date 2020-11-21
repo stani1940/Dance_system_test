@@ -19,7 +19,7 @@
                                 <li>
                                     <a href="{{ route('login') }}">Login</a>
                                 </li>
-                               
+
 
                             @endauth
 
