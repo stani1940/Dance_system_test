@@ -26,12 +26,12 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $user=Auth::user();
-        if ($user->hasRole('admin')){
+        $user = Auth::user();
+        if ($user->hasRole('admin')) {
             $users = User::all();
             return view('admin.users.index')->with('users', $users);
         }
-        if ($user->hasRole('arbiter')){
+        if ($user->hasRole('arbiter')) {
             $users = User::whereHas('roles', function ($q) {
                 $q->where('name', 'dancer');
             })->get();
@@ -76,15 +76,16 @@ class UsersController extends Controller
 
     public function show(User $user, Profile $profile)
     {
-        $profile = Profile::find( $profile )->first();
+        $profile = Profile::find($profile)->first();
         //dd($user);
-       // $id = $user->id;
+        // $id = $user->id;
         $ratings = Rating::where('user_id', $user->id)->get();
         //dd($ratings);
         $arbiter_ids = [];
-        $i=0;
+        $i = 0;
         foreach ($ratings as $rating) {
-            $arbiter_ids[$i] = $rating->arbiter_id; $i++;
+            $arbiter_ids[$i] = $rating->arbiter_id;
+            $i++;
             $tmp[] = array(
                 $rating->rating_count + $rating->rating_performance,
                 $rating->rating_count + $rating->rating_artistry,
@@ -131,33 +132,18 @@ class UsersController extends Controller
         $users = User::all();
         $arbiters = [];
         $j = 1;
-        foreach ($arbiter_ids as $arbiter_id)
-        {
-            foreach($users as $user_id)
-            {
-                if($user_id->id == $arbiter_id)
-                {
+        foreach ($arbiter_ids as $arbiter_id) {
+            foreach ($users as $user_id) {
+                if ($user_id->id == $arbiter_id) {
                     $arbiters[$j] = $user_id->name;
                     $j++;
                 }
             }
         }
 
-        $points = number_format(array_sum($total),2);
+        $points = number_format(array_sum($total), 2);
 
-        return view('admin.users.single_user', compact('user', 'ratings', 'arbiters', 'tmp', 'total', 'message','profile','points'));
-
-
-//        function store_points($id, $points)
-  //      {
-    //        $profile->points = $points;
-      //      $profile->save();
-        //}
-
-     //   store_points($id,$points);
-
-        //dd($points);
-        //dd($arbiters);
+        return view('admin.users.single_user', compact('user', 'ratings', 'arbiters', 'tmp', 'total', 'message', 'profile', 'points'));
     }
 
     public function edit(User $user)
@@ -222,7 +208,7 @@ class UsersController extends Controller
         $rating = Rating::create(
             ['user_id' => $user_id,
                 'ip' => $user_ip,
-            'rating_count' => $rating_count,
+                'rating_count' => $rating_count,
                 'rating_performance' => $rating_performance,
                 'rating_artistry' => $rating_artistry,
                 'arbiter_id' => $arbiter_id,
