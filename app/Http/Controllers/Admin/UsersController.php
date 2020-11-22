@@ -219,7 +219,7 @@ class UsersController extends Controller
         if ($rating->wasRecentlyCreated) {
             //dd(1);
             $message = 'Dancer has Rated successfully';
-            return redirect()->route('dancers.list')->with('success', $message);
+            return redirect()->route('admin.users.index')->with('success', $message);
         } else {
             $message = 'This dancer has already rated';
             //dd(2);

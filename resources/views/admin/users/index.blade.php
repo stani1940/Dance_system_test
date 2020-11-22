@@ -9,10 +9,15 @@
                         {{Session::get('error') }}
                     </p>
                 @endif
+                @if(Session::has('success'))
+                    <p class="alert alert-success">
+                        {{Session::get('success') }}
+                    </p>
+                @endif
                 <div class="card">
                     <div class="card-header">Users</div>
                     @can('add-users')
-                    <a href="{{route('admin.users.create')}}" class="btn btn-success">ADD USER</a>
+                        <a href="{{route('admin.users.create')}}" class="btn btn-success">ADD USER</a>
                     @endcan
                     <div class="card-body">
                         <table class="table table-dark table-striped">
@@ -41,9 +46,9 @@
                                             <button type="button" class="btn btn-info float-left">SHOW</button>
                                         </a>
                                         @can('rate-users')
-                                        <a href="{{route('admin.',$user->id)}}">
-                                            <button type="button" class="btn btn-primary float-left">RATE</button>
-                                        </a>
+                                            <a href="{{route('admin.',$user->id)}}">
+                                                <button type="button" class="btn btn-primary float-left">RATE</button>
+                                            </a>
                                         @endcan
                                         @can('edit-users')
                                             <a href="{{route('admin.users.edit',$user->id)}}">
