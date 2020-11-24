@@ -204,22 +204,32 @@ class UsersController extends Controller
         $rating_artistry = $request->rating_artistry;
         $user_ip = $request->ip(); // this will get the user ip address
         $arbiter_id = Auth::user()->id;
+        $ratings = Rating::where('user_id', $user_id)->get();
+        $check = $ratings->contains('arbiter_id', $arbiter_id);
 
-        $rating = Rating::create(
-            ['user_id' => $user_id,
-                'ip' => $user_ip,
-                'rating_count' => $rating_count,
-                'rating_performance' => $rating_performance,
-                'rating_artistry' => $rating_artistry,
-                'arbiter_id' => $arbiter_id,
-            ]);
-
-
-        if ($rating->wasRecentlyCreated) {
-            //dd(1);
-            $message = 'Dancer has Rated successfully';
-            return redirect()->route('admin.users.index')->with('success', $message);
+        if ($check) {
+            $message = 'This dancer has already rated';
+            //dd(2);
+            return redirect()->route('admin.users.index')->with('error', $message);
         } else {
+
+
+            $rating = Rating::create(
+                ['user_id' => $user_id,
+                    'ip' => $user_ip,
+                    'rating_count' => $rating_count,
+                    'rating_performance' => $rating_performance,
+                    'rating_artistry' => $rating_artistry,
+                    'arbiter_id' => $arbiter_id,
+                ]);
+
+
+            if ($rating->wasRecentlyCreated) {
+
+                $message = 'Dancer has Rated successfully!';
+                return redirect()->route('admin.users.index')->with('success', $message);
+            }
+
             $message = 'This dancer has already rated';
             //dd(2);
             return redirect()->route('admin.users.index')->with('error', $message);
