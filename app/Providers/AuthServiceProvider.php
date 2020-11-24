@@ -49,5 +49,8 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('approve-rating',function ($user){
             return $user->hasRole('admin');
         });
+        Gate::define('give-up',function ($user){
+            return $user->hasRole('dancer');
+        });
     }
 }

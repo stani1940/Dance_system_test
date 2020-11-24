@@ -96,6 +96,13 @@ class ProfilesController extends Controller
         return redirect()->route('dancers.list');
     }
 
+    public function update_status(Request $request, Profile $profile)
+    {
+        $profile->status =$request->status;
+        $profile->save();
+        return redirect()->route('dancers.list');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

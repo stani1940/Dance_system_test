@@ -38,21 +38,32 @@ class HomeController extends Controller
     {
         $dancers = User::with('profile')
             ->whereHas('roles', function ($q) {
-            $q->where('name', 'dancer');
-        })
+                $q->where('name', 'dancer');
+            })
+            ->whereHas('profile', function ($q) {
+                $q->where('status', NULL);
+            })
             ->join('profiles', 'profiles.id', '=', 'users.id')
-            ->orderBy('points','desc')
+            ->orderBy('points', 'desc')
             ->get();
-        //dd($dancers);
+        $refused_dancers = User::with('profile')
+            ->whereHas('roles', function ($q) {
+                $q->where('name', 'dancer');
+            })
+            ->whereHas('profile', function ($q) {
+                $q->where('status', '1');
+            })
+            ->join('profiles', 'profiles.id', '=', 'users.id')
+
+            ->orderBy('name', 'asc')
+            ->get();
+
         $profiles = Profile::all();
 
-        if (Auth::check() )
-        {
-            return view('dancers.indexLog', compact('dancers', 'profiles'));
-        }
-        else 
-        { 
-            return view('dancers.index', compact('dancers', 'profiles'));
+        if (Auth::check()) {
+            return view('dancers.indexLog', compact('dancers', 'profiles', 'refused_dancers'));
+        } else {
+            return view('dancers.index', compact('dancers', 'profiles','refused_dancers'));
         }
     }
 

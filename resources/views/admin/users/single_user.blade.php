@@ -22,6 +22,16 @@
                         @endcan
                         {!! Form::close() !!}
                     @endif
+
+                    {!! Form::model( $profile,  ['route' => ['profiles.update_status', $user->id],
+                                                'method' => 'put']) !!}
+                    {!! Form::hidden('status', 1) !!}
+                    @can('give-up')
+                        <div class="form-group">
+                            {!! Form::submit('I give up', ['class' => 'btn btn-danger']) !!}
+                        </div>
+                    @endcan
+                    {!! Form::close() !!}
                 </div>
                 <div class="card-body">
 

@@ -37,7 +37,6 @@ class UsersController extends Controller
             })->get();
 
             return view('admin.users.index')->with('users', $users);
-
         }
 
     }
@@ -225,7 +224,5 @@ class UsersController extends Controller
             //dd(2);
             return redirect()->route('admin.users.index')->with('error', $message);
         }
-
-
     }
 }

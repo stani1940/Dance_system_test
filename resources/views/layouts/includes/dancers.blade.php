@@ -26,6 +26,15 @@
                                     <td>{{($dancer->profile->points)}}</td>
                                 </tr>
                             @endforeach
+                            @foreach($refused_dancers as $dancer)
+                                <tr>
+                                    <td> {{$num++}} </td>
+                                    <td> {{$dancer->name}} </td>
+                                    <td>{{($dancer->profile->country )}}</td>
+
+                                    <td class="text-danger">{{('REFUSED')}}</td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
